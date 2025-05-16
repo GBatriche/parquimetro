@@ -1,7 +1,10 @@
 class Parquimetro {
     constructor() {
-        this.valorPor30Min = 1.00;
-        this.valorMaximo = 3.00
+        this.tabela = [
+            { valor: 3.00, tempo: "2h" },
+            { valor: 1.75, tempo: "1h" },
+            { valor: 1.00, tempo: "30min" }
+        ];
     }
 
     calcular() {
@@ -17,24 +20,27 @@ class Parquimetro {
             mensagem.textContent = "Valor insuficiente!";
             return;
         }
-        const valorConsiderado = Math.min(valorInserido, this.valorMaximo);
-        const blocosDe30Min = Math.floor(valorConsiderado / this.valorPor30Min);
-        const tempoTotalMinutos = blocosDe30Min * 30;
-        const horas = Math.floor(tempoTotalMinutos / 60);
-        const minutos = tempoTotalMinutos % 60;
 
-        const valorGasto = blocosDe30Min * this.valorPor30Min;
-        const troco = (valorInserido - valorGasto).toFixed(2);
+        let tempo = null;
+        let valorGasto = 0;
 
-        let texto = `Tempo: ${horas}h ${minutos}min`;
-        if (valorInserido > this.valorMaximo) {
-            texto += ` (Tempo máximo atingido)`;
+        for (let item of this.tabela) {
+            if (valorInserido >= item.valor) {
+                tempo = item.tempo;
+                valorGasto = item.valor;
+                break;
+            }
         }
-        if (troco > 0) {
-            texto += ` - Troco: R$${troco.replace('.', ',')}`;
+
+        const troco = (valorInserido - valorGasto).toFixed(2).replace('.', ',');
+
+        let texto = `Tempo: ${tempo}`;
+        if (valorInserido > valorGasto) {
+            texto += ` - Troco: R$${troco}`;
         }
 
         mensagem.textContent = texto;
     }
 }
+
 const parquimetro = new Parquimetro();

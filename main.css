@@ -37,27 +37,43 @@ label {
 .calculadora {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
     margin-top: 10px;
 }
 
-input{
-    width: 50%;
+.campo-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+    margin-right: 10px;
+}
+
+.campo-input label {
+    font-size: 16px;
+    margin-bottom: 4px;
+    font-weight: 500;
+    
+}
+
+input {
+    width: 100%;
     height: 40px;
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     padding: 8px;
 }
 
 button {
     height: 40px;
-    border-radius:0  8px 8px 0;
-    padding: 4px;
+    border-radius: 8px;
+    padding: 0 16px;
     border: none;
     color: white;
     background-color: #f38b15;
-    width: 25%;
     cursor: pointer;
+    font-weight: bold;
 }
 
 p {

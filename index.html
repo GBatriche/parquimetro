@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Parquímetro</title>
+<link rel="stylesheet" href="main.css" />
 </head>
 <body>
     <div class="container">
-        <h1>
-            Calcule o tempo do parquímetro
-        </h1>
-            <label for="valor">Digite o valor (R$)</label> 
-        <div class="calculadora">
-            <input type="number" id="valor" step="0.01"> 
-            <button onclick="parquimetro.calcular()">Calcular</button> 
-        </div>    
-        <p id="mensagem"></p> 
-    
-        <table>
-            <thead>
-                <tr>
-                    <th>Valor (R$)</th>
-                    <th>Tempo de Estacionamento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1,00</td><td>30 minutos</td></tr>
-                <tr><td>1,75</td><td>1 hora</td></tr>
-                <tr><td>3,00</td><td>2 horas</td></tr>
-    
-            </tbody>
-        </table>
+    <h1>Calcule o tempo do parquímetro</h1>
+    <div class="calculadora">
+        <div class="campo-input">
+            <label for="valor">Digite o valor (R$)</label>
+            <input type="number" id="valor" step="0.01">
+        </div>
+        <button onclick="parquimetro.calcular()">Calcular</button>
     </div>
+    <p id="mensagem"></p>
+
+    <h2>Tabela de Preços</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Valor (R$)</th>
+            <th>Tempo de Estacionamento</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr><td>1,00</td><td>30 minutos</td></tr>
+            <tr><td>1,75</td><td>1 hora</td></tr>
+            <tr><td>3,00</td><td>2 horas</td></tr>
+        </tbody>
+    </table>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
