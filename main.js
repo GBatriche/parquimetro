@@ -1,6 +1,6 @@
 class Parquimetro {
     constructor() {
-        this.valorPor15Min = 1.00;
+        this.valorPor30Min = 1.00;
     }
 
     calcular() {
@@ -17,8 +17,8 @@ class Parquimetro {
             return;
         }
 
-        const blocosDe15Min = Math.floor(valorInserido / this.valorPor15Min);
-        const tempoTotalMinutos = blocosDe15Min * 15;
+        const blocosDe30Min = Math.floor(valorInserido / this.valorPor30Min);
+        const tempoTotalMinutos = blocosDe30Min * 30;
         const horas = Math.floor(tempoTotalMinutos / 60);
         const minutos = tempoTotalMinutos % 60;
 
